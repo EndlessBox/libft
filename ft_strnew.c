@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ybouladh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ybouladh <ybouladh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/06 20:59:26 by ybouladh          #+#    #+#             */
-/*   Updated: 2018/10/09 13:41:49 by ybouladh         ###   ########.fr       */
+/*   Updated: 2020/10/22 11:46:12 by ybouladh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,7 @@ char	*ft_strnew(size_t size)
 	jumper = 0;
 	if ((new_string = (char*)malloc(size + 1)))
 	{
-		new_string[size] = '\0';
-		new_string[0] = 'y';
-		while (jumper < size)
-		{
-			new_string[jumper] = '\0';
-			jumper++;
-		}
+		ft_memset(new_string, '\0', size + 1);
 		return (new_string);
 	}
 	else

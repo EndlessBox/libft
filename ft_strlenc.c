@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlenc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybouladh <ybouladh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/05 08:27:29 by ybouladh          #+#    #+#             */
-/*   Updated: 2020/10/22 11:52:35 by ybouladh         ###   ########.fr       */
+/*   Created: 2020/10/23 09:47:21 by ybouladh          #+#    #+#             */
+/*   Updated: 2020/10/23 12:41:58 by ybouladh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dst, const char *src, size_t len)
+int		ft_strlenc(char *str, char c)
 {
-	unsigned int	jumper;
+	int		jumper;
 
 	jumper = 0;
-	if (ft_strlen(src) < len)
-	{
-		while (src[jumper] != '\0')
-		{
-			dst[jumper] = src[jumper];
-			jumper++;
-		}
-	}
-	else
-	{
-		while (jumper < len)
-		{
-			dst[jumper] = src[jumper];
-			jumper++;
-		}
-	}
-	while (jumper < len)
-	{
-		dst[jumper] = '\0';
+	while (str[jumper] != c && str[jumper])
 		jumper++;
-	}
-	return (dst);
+	if (str[jumper] == '\0')
+		return (-1);
+	return (jumper);
 }

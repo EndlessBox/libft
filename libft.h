@@ -3,19 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ybouladh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ybouladh <ybouladh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/04 19:52:16 by ybouladh          #+#    #+#             */
-/*   Updated: 2018/10/12 15:44:24 by ybouladh         ###   ########.fr       */
+/*   Updated: 2020/10/23 14:26:03 by ybouladh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_LIBFT_H
 # define FT_LIBFT_H
 
+# define BUFF_SIZE 1
+# define MAX_INT 2147483647
+
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <fcntl.h>
 
 typedef struct		s_list
 {
@@ -25,6 +29,7 @@ typedef struct		s_list
 }					t_list;
 
 size_t				ft_strlen(const char *s);
+int					ft_strlenc(char *str, char c);
 char				*ft_strdup(const char *s1);
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strncpy(char *dst, const char *src, size_t len);
@@ -75,6 +80,7 @@ void				ft_putnbr_fd(int n, int fd);
 void				ft_putnbr(int n);
 char				*ft_itoa(int n);
 void				*ft_memalloc(size_t size);
+void				*ft_realloc(void *old_ptr, size_t old_size, size_t size);
 void				ft_memdel(void **ap);
 void				ft_putendl_fd(char const *s, int fd);
 
@@ -88,5 +94,6 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 char				*ft_strndup(const char *s1, size_t n);
 int					ft_iswhitespace(char c);
 void				ft_add_last(t_list *lst, t_list *new);
+int					get_next_line(const	int fd, char **line);
 
 #endif
