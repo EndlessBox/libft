@@ -15,9 +15,7 @@
 char	*ft_strnew(size_t size)
 {
 	char			*new_string;
-	unsigned int	jumper;
 
-	jumper = 0;
 	if ((new_string = (char*)malloc(size + 1)))
 	{
 		ft_memset(new_string, '\0', size + 1);
